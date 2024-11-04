@@ -1,9 +1,21 @@
-import Login from "./auth/login/page";
+import { auth } from "@/auth";
 
-export default function Home() {
-  return (
+
+export default async function Home() {
+  const session = await auth();
+  if (!session) {
+    console.log(session)
+    return redirect('/auth/login');
+  }
+  
+  return(
+
     <>
-      <Login/>
+    <div className="h-full w-screen">
+       <Aside/>
+    </div>
     </>
-  );
+    
+  )
+  
 }
