@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState } from "react";
 
 function Aside({ setMostrarEscuela }) {
@@ -15,17 +15,32 @@ function Aside({ setMostrarEscuela }) {
 
   return (
     <div className="h-full">
-      <div className={`${show ? "" : "hidden"
-        } p-4`}>
-        <button onClick={toggleMenu}
-          className="h-8 w-8 rounded-md shadow-md shadow-slate-500 bg-slate-500 flex items-center justify-center border border-slate-600 border-t-slate-200 border-l-slate-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      <div className={`${show ? "hidden" : ""} p-4`}>
+        <button
+          onClick={toggleMenu}
+          className="h-8 w-8 rounded-md shadow-md shadow-slate-500 bg-slate-500 flex items-center justify-center border border-slate-600 border-t-slate-200 border-l-slate-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
           </svg>
         </button>
       </div>
-      <div className={`${show ? "hidden" : ""
-        } w-screen md:w-80 h-screen bg-[#2E7EDF]`}>
+      <div
+        className={`${
+          show ? "" : "hidden"
+        } w-screen md:w-80 h-screen bg-[#2E7EDF]`}
+      >
         <div className="w-full h-28 bg-[#023763] flex items-center justify-center">
           <button
             onClick={toggleMenu}
@@ -41,7 +56,7 @@ function Aside({ setMostrarEscuela }) {
           />
         </div>
         <div className="flex flex-col items-center">
-          <div className="flex flex-col items-center justify-center mt-2 md:mt-10 gap-2 md:gap-8">
+          <div className="flex flex-col items-center justify-center mt-2 md:mt-6 gap-2 md:gap-6">
             <div className="bg-white text-5xl h-32 w-32 rounded-full flex items-center justify-center">
               KR
             </div>
@@ -57,7 +72,10 @@ function Aside({ setMostrarEscuela }) {
                 <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
                   REPORTES
                 </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50" onClick={handleClick}>
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={handleClick}
+                >
                   ESCUELAS
                 </button>
                 <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
@@ -74,7 +92,9 @@ function Aside({ setMostrarEscuela }) {
             )}
           </div>
 
-          <div className="font-bold text-lg md:mt-20 hover:text-white">Logout</div>
+          <div className="font-bold text-lg md:mt-10 hover:text-white">
+            Logout
+          </div>
         </div>
       </div>
     </div>
@@ -82,4 +102,3 @@ function Aside({ setMostrarEscuela }) {
 }
 
 export default Aside;
-
