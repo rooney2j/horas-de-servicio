@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
-
-
+import Aside from "./components/Aside/page";
+import MainSearch from "./components/mains/MainSearch";
 export default async function Home() {
   const session = await auth();
   if (!session) {
@@ -13,6 +13,7 @@ export default async function Home() {
     <>
     <div className="h-full w-screen">
        <Aside/>
+       <MainSearch></MainSearch>
     </div>
     </>
     
