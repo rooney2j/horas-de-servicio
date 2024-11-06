@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 
-function Aside() {
+function Aside({ setMostrarEscuela }) {
   const [show, setShow] = useState(true);
   let rol = "admin";
 
@@ -9,8 +9,12 @@ function Aside() {
     setShow(!show);
   };
 
+  const handleClick = () => {
+    setMostrarEscuela(true);
+  };
+
   return (
-    <>
+    <div className="h-full">
       <div className={`${show ? "" : "hidden"
         } p-4`}>
         <button onClick={toggleMenu}
@@ -44,7 +48,7 @@ function Aside() {
             <div className="text-white">USER NAME</div>
             <div className="text-[#023763] font-bold text-2xl">ADMIN</div>
           </div>
-          <div className="flex flex-col w-full h-72 items-center justify-center md:gap-1 mt-2 md:mt-8">
+          <div className="flex flex-col w-full h-72 items-center justify-center mt-2 md:mt-8">
             {rol === "admin" ? (
               <>
                 <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
@@ -53,7 +57,7 @@ function Aside() {
                 <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
                   REPORTES
                 </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50" onClick={handleClick}>
                   ESCUELAS
                 </button>
                 <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
@@ -73,7 +77,7 @@ function Aside() {
           <div className="font-bold text-lg md:mt-20 hover:text-white">Logout</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
