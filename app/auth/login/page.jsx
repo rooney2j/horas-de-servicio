@@ -5,12 +5,18 @@ import {FaSpinner} from "react-icons/fa"
 export default function Login() {
 
   const[loading, setLoading] = useState(true)
+  const[slowLoading, setSlowLoading] = useState(false)
   
 console.log(FaSpinner)
   const handleSubmit = async(e)=>{
      e.preventDefault();
 
      setLoading(false)
+     setTimeout(() => {
+      setSlowLoading(true)
+     }, 5000);
+      
+     
 
      const formData = new FormData(e.target)
      console.log(formData.get("email"))
@@ -24,7 +30,7 @@ console.log(FaSpinner)
     
      
       setLoading(true)
-     
+      setSlowLoading(false)
     
   }
 
@@ -39,16 +45,18 @@ console.log(FaSpinner)
                : 
                <FaSpinner className='text-6xl text-sky-950 animate-spin mt-10'/>
               }
+              {slowLoading === true ? <h2 className='mt-5 text-xl font-bold '>Aguante milei</h2> : ""}
              </div>
             <input name='email' className='h-10 w-4/5 rounded-lg outline-none ps-2 mt-16 font-medium' placeholder='Nombre de Usuario' type="text" />
             <input name='password' className='h-10 w-4/5 rounded-lg outline-none ps-2 mt-16 font-medium' placeholder='Contraseña' type="text" />
             <button type='submit' className='h-9 w-32 rounded-lg bg-sky-500 hover:duration-300 hover:ease-out hover:bg-sky-600 text-white font-medium mt-10 active:duration-300 active:ease-out active:w-28 active:h-8 active:bg-blue-700'>Enviar</button>
           </form>
-          <article className='hidden md:flex w-full md:w-1/2 h-full  justify-center items-center rounded-es-[5rem] bg-white'>
+          <article className='hidden md:flex w-full md:w-1/2 h-full  justify-center items-center rounded-es-[5rem] bg-white flex-col'>
             {loading?
             <img src="https://www.estudiantefunval.org/pluginfile.php/1/theme_moove/logo/1729720886/logo%202023.png" alt="" />
               : <FaSpinner className='text-6xl text-sky-600 animate-spin '/>
           }
+          {slowLoading? <h2 className='mt-5 text-lg font-medium '>Nuestro equipo esta centrando un div...</h2> : ""}
           </article>
         </section>
     </div>

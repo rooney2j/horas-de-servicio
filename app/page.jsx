@@ -5,8 +5,6 @@ import LogOut from "./components/icons/LogOut";
 import { signOut } from "@/auth";
 import { redirect } from "next/navigation";
 
-
-
 export default async function Home() {
    
 
@@ -23,8 +21,11 @@ export default async function Home() {
 
     <>
     
-      <div className="h-screen w-screen">
-        <Aside />
+      <div className="h-screen w-screen flex">
+        <Aside 
+        role = {session.user.role.name}
+        />
+        <div className="bg-[url(/images/1393565.webp')] h-full w-full ">
         <form className="absolute top-4 right-4" action={async () => {
           'use server';
           await signOut();
@@ -36,7 +37,9 @@ export default async function Home() {
             </li>
           </ul>
         </form>
-      </div>
+        </div>
+        </div>
+     
 
 
     </>
