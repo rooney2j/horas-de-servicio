@@ -60,7 +60,7 @@ export const UserModal = () => {
                 </div>
 
                 <div className="form-control relative w-full">
-                  <input type="text" name="f_lastname" className="input input-sm max-w-full border-2 text-base text-black bg-white" placeholder="Primer Apellido" value={formData.f_lastname} />
+                  <input type="text" name="f_lastname" className="input input-sm max-w-full border-2 text-base text-black bg-white" placeholder="Primer Apellido" value={formData.f_lastname} onChange={handleInputChange} />
                 </div>
                 <div className="form-control relative w-full">
                   <input type="text" name="s_lastname" className="input input-sm max-w-full border-2 text-base text-black bg-white" placeholder="Segundo Apellido" value={formData.s_lastname} onChange={handleInputChange} />

@@ -12,7 +12,6 @@ export default async function Home() {
 
     <>
     <div className="h-full w-screen">
-       <Aside/>
     </div>
     </>
     

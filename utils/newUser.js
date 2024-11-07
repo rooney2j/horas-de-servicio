@@ -7,7 +7,13 @@ export const newUser = async (e) => {
   try {
     // Obtener sesión 
     const session = await auth();
-    console.log(session.accessToken);
+    console.log("Session data", session);
+
+    if (!session.accessToken) {
+      console.error("El token de acceso no esta presente en la sesión.");
+      return;
+    }
+    console.log("Access token:", session.accessToken)
 
     //Definir el objeto de nuevo usuario
 
@@ -32,7 +38,7 @@ export const newUser = async (e) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: session.accessToken,
+          "Authorization": `Bearer ${session.accessToken}`,
         },
         body: JSON.stringify(newUser),
       }
