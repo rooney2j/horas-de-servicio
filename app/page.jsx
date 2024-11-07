@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
-
+import Aside from "@/app/components/Aside/page"
+import RpteNuevo from "@/app/components/reportes/nuevo/page"
 
 export default async function Home() {
   const session = await auth();
@@ -13,6 +14,7 @@ export default async function Home() {
     <>
     <div className="h-full w-screen">
        <Aside/>
+       <RpteNuevo/>
     </div>
     </>
     
