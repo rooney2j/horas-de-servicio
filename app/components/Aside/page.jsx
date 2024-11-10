@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function Aside({ setMostrarEscuela }) {
   const [show, setShow] = useState(true);
-  let rol = "admin";
+  let role = "admin";
 
   const toggleMenu = () => {
     setShow(!show);
@@ -64,7 +64,7 @@ function Aside({ setMostrarEscuela }) {
             <div className="text-[#023763] font-bold text-2xl">ADMIN</div>
           </div>
           <div className="flex flex-col w-full h-72 items-center justify-center mt-2 md:mt-8">
-            {rol === "admin" ? (
+            {role === "admin" ? (
               <>
                 <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
                   USUARIOS
@@ -90,10 +90,6 @@ function Aside({ setMostrarEscuela }) {
                 REPORTES
               </button>
             )}
-          </div>
-
-          <div className="font-bold text-lg md:mt-10 hover:text-white">
-            Logout
           </div>
         </div>
       </div>
