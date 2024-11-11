@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Escuela({token}) {
-  const [escuelas, setEscuelas] = useState([]);
+function Country({token}) {
+  const [Countrys, setCountrys] = useState([]);
 
   useEffect(() => {
-    const fetchEscuelas = async () => {
+    const fetchCountrys = async () => {
       try {
         const response = await axios.get(
-          "https://funval-api.onrender.com/api/v1/schools/",
+          "https://funval-api.onrender.com/api/v1/country/",
           {
             headers: {
               Authorization: token,
@@ -17,20 +17,20 @@ function Escuela({token}) {
             },
           }
         );
-        setEscuelas(response.data);
+        setCountrys(response.data);
 
       } catch (error) {
-        console.error("Error al obtener las escuelas:", error);
+        console.error("Error al obtener las Countrys:", error);
       }
     };
 
-    fetchEscuelas();
+    fetchCountrys();
   }, []);
 
   return (
     <div className="flex w-[70%] flex-col items-center justify-center">
       <div className="flex justify-between w-full md:w-1/2">
-        <h2 className="text-3xl">Escuelas</h2>
+        <h2 className="text-3xl">Paises</h2>
         <button className="h-10 w-10 bg-blue-500 rounded-full">+</button>
       </div>
 
@@ -42,9 +42,9 @@ function Escuela({token}) {
           </tr>
         </thead>
         <tbody>
-          {escuelas.map((escuela) => (
-            <tr key={escuela.id}>
-              <td className="border px-4 py-2">{escuela.name}</td>
+          {Countrys.map((Country) => (
+            <tr key={Country.id}>
+              <td className="border px-4 py-2">{Country.name}</td>
               <td className="flex justify-center px-4 py-2 border">
                 <button className="bg-blue-500 text-white px-4 py-1 rounded">
                   Editar
@@ -58,4 +58,4 @@ function Escuela({token}) {
   );
 }
 
-export default Escuela;
+export default Country;
