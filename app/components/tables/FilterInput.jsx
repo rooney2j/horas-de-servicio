@@ -26,4 +26,6 @@ export default function FilterInput({ handleChange, filterText, isActiveSearchBu
             </div>
         </div>
     )
+
 }
+
