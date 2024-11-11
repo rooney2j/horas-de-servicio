@@ -18,14 +18,14 @@ async function page() {
       role = {session?.user?.role?.name}
       token = {session?.accessToken}
       />
-      <form className="absolute top-4 right-4" action={async () => {
+      <form className="fixed top-4 right-4" action={async () => {
         "use server"
         await signOut();
         console.log("hola")
       }}>
 
         <ul>
-          <li className="h-16 w-16 bg-gradient-to-r from-sky-600 via-sky-400 to-blue-300 text-black rounded-full flex items-center justify-center">
+          <li className="h-12 w-12 bg-gradient-to-r from-sky-600 via-sky-400 to-blue-300 text-black rounded-full flex items-center justify-center">
                <button type="submit"><LogOutIcon/></button>
           </li>
         </ul>

@@ -6,9 +6,9 @@ import Country from "../country/Country";
 import Mainbasegozu from "../mains/Mainbasegozu";
 
 
-function Aside({token}) {
+function Aside({role, token}) {
   const [show, setShow] = useState(true);
-  const role="Admin"
+ 
   const [mostrar, setMostrar] = useState(null);
   const handleMostrar = (componente) => {
     setMostrar(componente);
