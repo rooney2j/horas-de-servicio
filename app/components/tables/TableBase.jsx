@@ -1,3 +1,4 @@
+
 "use client"
 import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
@@ -50,6 +51,7 @@ export default function AdminUsersTable({token}) {
         return matchesName && matchesStatus;
     });
 
+
     const handleClear = () => {
         setFilterText('');
         setResetPaginationToggle(!resetPaginationToggle);
@@ -63,6 +65,7 @@ export default function AdminUsersTable({token}) {
         } else {
             handleClear();
         }
+
     };
 
     const handleStatusChange = (event) => {
@@ -94,3 +97,44 @@ export default function AdminUsersTable({token}) {
         </div>
     );
 }
+
+    }
+
+    const handleStatusChange = (event) => {
+        setFilterStatus(event.target.value);
+        setResetPaginationToggle(!resetPaginationToggle); // Reiniciar paginación al aplicar el filtro
+    };
+
+    return (
+        <>
+            <div className='flex flex-col'>
+                {/* Componente para las opciones de filtrado a través de radio buttons */}
+                <FilterRadioButtons
+                    filterStatus={filterStatus}
+                    handleStatusChange={handleStatusChange}
+                />
+
+                {/* Componente para el filtro por nombre a través de un input */}
+                <FilterInput
+                    handleChange={handleChange}
+                    filterText={filterText}
+                    isActiveSearchButton={isActiveSearchButton}
+                    handleClear={handleClear}
+                />
+
+                {/* DataTable */}
+                <DataTable
+                    columns={columns}
+                    data={filteredItems}
+                    conditionalRowStyles={conditionalRowStyles}
+                    customStyles={customStyles}
+                    pagination
+                    paginationResetDefaultPage={resetPaginationToggle}
+                    selectableRows
+                    responsive
+                />
+            </div>
+        </>
+    )
+}
+
