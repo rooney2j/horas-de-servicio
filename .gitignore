@@ -44,7 +44,7 @@ app/components/tables/ControllerTable.jsx
 app/utils/
 
 # evito que se suba el page.jsx
-app/page.jsx
+#app/page.jsx
 
 # evito que se suban cambios en el .gitignore
 .gitignore
