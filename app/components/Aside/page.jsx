@@ -1,86 +1,127 @@
-'use client'
+"use client";
 import { useState } from "react";
+import Escuela from "../escuela/Escuela";
+import Reportes from "../Reportes/Reportes";
+import Country from "../country/Country";
+import Mainbasegozu from "../mains/Mainbasegozu";
 
-function Aside({ setMostrarEscuela, role }) {
+
+function Aside({role, token}) {
   const [show, setShow] = useState(true);
-  /* let rol = "admin"; */
-
+ 
+  const [mostrar, setMostrar] = useState(null);
+  const handleMostrar = (componente) => {
+    setMostrar(componente);
+  };
   const toggleMenu = () => {
     setShow(!show);
   };
-
-  const handleClick = () => {
-    setMostrarEscuela(true);
+  const handleClick = (componente) => {
+    handleMostrar(componente);
+    toggleMenu();
   };
 
+
   return (
-    <div className="h-full">
-      <div className={`${show ? "" : "hidden"
-        } p-4`}>
-        <button onClick={toggleMenu}
-          className="h-8 w-8 rounded-md shadow-md shadow-slate-500 bg-slate-500 flex items-center justify-center border border-slate-600 border-t-slate-200 border-l-slate-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
-      </div>
-      <div className={`${show ? "hidden" : ""
-        } w-screen md:w-80 h-screen bg-[#2E7EDF]`}>
-        <div className="w-full h-28 bg-[#023763] flex items-center justify-center">
+    <div className="flex h-screen w-screen gap-2">
+      <div className="h-full">
+        <div className={`${show ? "hidden" : ""} p-4`}>
           <button
             onClick={toggleMenu}
-            className="absolute md:flex top-2 right-2 md:top-1 md:left-64 text-white text-2xl font-bold px-3 md:px-6"
+            className="h-8 w-8 rounded-md shadow-md shadow-slate-500 bg-slate-500 flex items-center justify-center border border-slate-600 border-t-slate-200 border-l-slate-200"
           >
-            ✕
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
           </button>
-
-          <img
-            className="w-60 md:w-[85%] h-12 px-5"
-            src="https://www.fundaciondevalores.org/wp-content/uploads/2023/04/LOGO-FUNVAL-NUEVO1_Mesa-de-trabajo-1.png"
-            alt=""
-          />
         </div>
-        <div className="flex flex-col items-center">
-          <div className="flex flex-col items-center justify-center mt-2 md:mt-10 gap-2 md:gap-8">
-            <div className="bg-white text-5xl h-32 w-32 rounded-full flex items-center justify-center">
-              KR
-            </div>
-            <div className="text-white">USER NAME</div>
-            <div className="text-[#023763] font-bold text-2xl">{role
-              }</div>
-          </div>
-          <div className="flex flex-col w-full h-72 items-center justify-center mt-2 md:mt-8">
-            {role === "Admin" ? (
-              <>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
-                  USUARIOS
-                </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
-                  REPORTES
-                </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50" onClick={handleClick}>
-                  ESCUELAS
-                </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
-                  PAISES
-                </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
-                  REPORTES
-                </button>
-              </>
-            ) : (
-              <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
-                REPORTES
-              </button>
-            )}
-          </div>
+        <div
+          className={`${show ? "" : "hidden"
+            } w-screen md:w-80 h-screen bg-[#2E7EDF]`}
+        >
+          <div className="w-full h-28 bg-[#023763] flex items-center justify-center">
+            <button
+              onClick={toggleMenu}
+              className="absolute md:flex top-2 right-2 md:top-1 md:left-64 text-white text-2xl font-bold px-3 md:px-6"
+            >
+              ✕
+            </button>
 
-          <div className="font-bold text-lg md:mt-20 hover:text-white">Logout</div>
+            <img
+              className="w-60 md:w-[85%] h-12 px-5"
+              src="https://www.fundaciondevalores.org/wp-content/uploads/2023/04/LOGO-FUNVAL-NUEVO1_Mesa-de-trabajo-1.png"
+              alt=""
+            />
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center justify-center mt-2 md:mt-6 gap-2 md:gap-6">
+              <div className="bg-white text-5xl h-32 w-32 rounded-full flex items-center justify-center">
+                KR
+              </div>
+              <div className="text-white">USER NAME</div>
+
+              <div className="text-[#023763] font-bold text-2xl">{role}</div>
+
+            </div>
+            <div className="flex flex-col w-full h-72 items-center justify-center mt-2 md:mt-8">
+              {role === "Admin" ? (
+                <>
+                  <button
+                    className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                    onClick={() => handleClick("usuario")}
+                  >
+                    USUARIOS
+                  </button>
+                  <button
+                    className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                    onClick={() => handleClick("reportes")}
+                  >
+                    REPORTES
+                  </button>
+                  <button
+                    className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                    onClick={() => handleClick("escuela")}
+                  >
+                    ESCUELAS
+                  </button>
+                  <button
+                    className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                    onClick={() => handleClick("country")}
+                  >
+                    PAISES
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={() => handleClick("reportes")}
+                >
+                  REPORTES
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </div>
+      
+        {mostrar === "escuela" && <Escuela token = {token} />}
+        {mostrar === "reportes" && <Reportes />}
+        {mostrar === "country" && <Country token = {token} />}
+        {mostrar === "usuario" && <Mainbasegozu token = {token} />}
+      
     </div>
   );
 }
 
 export default Aside;
-

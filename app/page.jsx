@@ -8,32 +8,46 @@ import TableBase from "./components/tables/TableBase"
 
 export default async function Home() {
 
+
   const session = await auth();
 
+
   if (!session) {
+
+
     redirect('/auth/login')
   }
   else {
     redirect("/main")
   }
 
+
+ 
+
   return (
     <>
+
+
       <div className="h-screen w-screen flex">
         <Aside
           role={session.user.role.name}
         />
         <Escuela
           token={session.accessToken}
+< services
         />
         <TableBase
           token={session.accessToken}
+    
+        <TableBase
+          token={session.accessToken}
         />
-        <div className="bg-[url(/images/1393565.webp')] h-full w-full ">
+
+        <div className="bg-[url(/images/1393565.webp')] h-full w-
         </div>
       </div>
 
-
+     
     </>
 
   )
