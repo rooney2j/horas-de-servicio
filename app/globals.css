@@ -2,4 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import 'datatables.net-dt'; */
+.report-accepted {
+    background-color: palegreen;
+}
+
+.report-accepted:hover {
+    background-color: aquamarine;
+}
