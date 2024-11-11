@@ -1,24 +1,17 @@
 'use client'
 import useData from "@/app/customshooks/useData";
 import { createService } from "@/services/apiServices";
-import { auth } from '@/authbk';
+import { auth } from '@/auth';
 import { useEffect } from "react";
 
-export default function RpteNuevo() {
+export default function RpteNuevo({token}) {
   console.log(useData)
   const url = "https://funval-api.onrender.com/api/v1/categories/";
 
 
-  useEffect(() => {
-    const fetchSession = async () => {
-      const session = await auth();
-      // handle the session
-    };
-    fetchSession();
-  }, []);
-  /*const token=session.accessToken*/
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQiLCJyb2xlIjp7ImlkIjoiMiIsIm5hbWUiOiJTdHVkZW50In0sImlhdCI6MTczMTMzNTkzOSwiZXhwIjoxNzMxNDIyMzM5fQ.DJ_vLr-1AxbGHC_2RpZ4oachOcK1-IJRqHd1tKkrGSc";
+ 
+  
+  /* const token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQiLCJyb2xlIjp7ImlkIjoiMiIsIm5hbWUiOiJTdHVkZW50In0sImlhdCI6MTczMTMzNTkzOSwiZXhwIjoxNzMxNDIyMzM5fQ.DJ_vLr-1AxbGHC_2RpZ4oachOcK1-IJRqHd1tKkrGSc"; */
 
   const { datos } = useData(url, token);
   const categories = Array.isArray(datos) ? datos : [];

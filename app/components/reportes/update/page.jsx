@@ -1,7 +1,7 @@
 'use client'
 import useData from '@/app/customshooks/useData'
 import { createServiceUpd } from '@/services/apiServices';
-import { auth } from '@/authbk';
+import { auth } from '@/auth';
 import { useEffect } from "react";
 
 export default function RpteUpdate() {

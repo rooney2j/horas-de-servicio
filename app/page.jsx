@@ -34,20 +34,14 @@ export default async function Home() {
         />
         <Escuela
           token={session.accessToken}
-< services
         />
-        <TableBase
-          token={session.accessToken}
+        <TableBase token={session.accessToken}/>
     
-        <TableBase
-          token={session.accessToken}
-        />
 
-        <div className="bg-[url(/images/1393565.webp')] h-full w-
+        <div className="bg-[url(/images/1393565.webp')] h-full">
         </div>
-      </div>
 
-     
+       </div>
     </>
 
   )
