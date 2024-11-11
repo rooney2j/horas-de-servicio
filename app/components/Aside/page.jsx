@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Escuela from "../escuela/Escuela";
 import Reportes from "../Reportes/Reportes";
+import Country from "../country/Country";
 
 
 function Aside({role,token}) {
@@ -95,7 +96,7 @@ function Aside({role,token}) {
                   </button>
                   <button
                     className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
-                    onClick={() => handleClick("paises")}
+                    onClick={() => handleClick("country")}
                   >
                     PAISES
                   </button>
@@ -116,6 +117,7 @@ function Aside({role,token}) {
         {mostrar === "escuela" && <Escuela token = {token} />}
         {mostrar === "usuario" && <Usuario />}
         {mostrar === "reportes" && <Reportes />}
+        {mostrar === "country" && <Country token = {token} />}
       
     </div>
   );
