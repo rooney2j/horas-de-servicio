@@ -1,16 +1,40 @@
+import { auth } from "@/auth";
+import Aside from "./components/Aside/page";
+import LogOut from "./components/icons/LogOutIcon";
+import { signOut } from "@/auth";
+import { redirect } from "next/navigation";
+import Escuela from "./components/escuela/Escuela";
+import TableBase from "./components/tables/TableBase"
 
-import { auth } from "@/authbk";
-import Nuevo from '@/app/components/reportes/nuevo/page'
+export default async function Home() {
 
-export default function Home() {
-    
-  return(
+  const session = await auth();
 
+  if (!session) {
+    redirect('/auth/login')
+  }
+  else {
+    redirect("/main")
+  }
+
+  return (
     <>
-    <div className="h-full w-screen">
-    </div>
+      <div className="h-screen w-screen flex">
+        <Aside
+          role={session.user.role.name}
+        />
+        <Escuela
+          token={session.accessToken}
+        />
+        <TableBase
+          token={session.accessToken}
+        />
+        <div className="bg-[url(/images/1393565.webp')] h-full w-full ">
+        </div>
+      </div>
+
+
     </>
-    
+
   )
-  
 }
