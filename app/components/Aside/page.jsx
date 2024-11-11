@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-function Aside({ setMostrarEscuela }) {
+function Aside({ setMostrar }) {
   const [show, setShow] = useState(true);
   let role = "Admin";
 
@@ -9,8 +9,9 @@ function Aside({ setMostrarEscuela }) {
     setShow(!show);
   };
 
-  const handleClick = () => {
-    setMostrarEscuela(true);
+  const handleClick = (componente) => {
+    setMostrar(componente);
+    toggleMenu();
   };
 
   return (
@@ -61,32 +62,41 @@ function Aside({ setMostrarEscuela }) {
               KR
             </div>
             <div className="text-white">USER NAME</div>
-            <div className="text-[#023763] font-bold text-2xl">ADMIN</div>
+            <div className="text-[#023763] font-bold text-2xl">{role}</div>
           </div>
           <div className="flex flex-col w-full h-72 items-center justify-center mt-2 md:mt-8">
             {role === "Admin" ? (
               <>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={() => handleClick("usuario")}
+                >
                   USUARIOS
                 </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={() => handleClick("reportes")}
+                >
                   REPORTES
                 </button>
                 <button
                   className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
-                  onClick={handleClick}
+                  onClick={() => handleClick("escuela")}
                 >
                   ESCUELAS
                 </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={() => handleClick("paises")}
+                >
                   PAISES
-                </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
-                  REPORTES
                 </button>
               </>
             ) : (
-              <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+              <button
+                className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                onClick={() => handleClick("reportes")}
+              >
                 REPORTES
               </button>
             )}
