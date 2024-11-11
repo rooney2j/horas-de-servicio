@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 
+
 function Aside({ setMostrar, role }) {
   const [show, setShow] = useState(true);
+
 
   const toggleMenu = () => {
     setShow(!show);
@@ -61,7 +63,9 @@ function Aside({ setMostrar, role }) {
               KR
             </div>
             <div className="text-white">USER NAME</div>
+
             <div className="text-[#023763] font-bold text-2xl">{role}</div>
+
           </div>
           <div className="flex flex-col w-full h-72 items-center justify-center mt-2 md:mt-8">
             {role === "Admin" ? (
