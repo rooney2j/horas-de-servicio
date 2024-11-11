@@ -37,7 +37,7 @@ next-env.d.ts
 
 # mis archivos
 app/components/tables/getData.js
-app/components/tables/tokens.js
+#app/components/tables/tokens.js
 app/components/tables/ControllerTable.jsx
 
 # evito que se suba el page.jsx
