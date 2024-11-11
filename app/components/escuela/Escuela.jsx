@@ -1,7 +1,8 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Escuela(token) {
+function Escuela({token}) {
   const [escuelas, setEscuelas] = useState([]);
 
   useEffect(() => {
@@ -17,6 +18,7 @@ function Escuela(token) {
           }
         );
         setEscuelas(response.data);
+
       } catch (error) {
         console.error("Error al obtener las escuelas:", error);
       }
