@@ -5,10 +5,14 @@ import Reportes from "../Reportes/Reportes";
 import Country from "../country/Country";
 import Mainbasegozu from "../mains/Mainbasegozu";
 import RpteNuevo from "../Reportes/nuevo/page";
+import AdminReportsTable from "../tables/AdminReportsTable";
+import StudentReportsTable from "../tables/StudentReportsTable";
+import ControllerTableViewReports from "../tables/ControllerTableViewReports";
 
 
 function Aside({role, token}) {
   const [show, setShow] = useState(true);
+  const[uploadService, setUploadService] = useState(false)
  
   const [mostrar, setMostrar] = useState(null);
   const handleMostrar = (componente) => {
@@ -104,12 +108,16 @@ function Aside({role, token}) {
                   </button>
                 </>
               ) : (
+                <>
                 <button
                   className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
                   onClick={() => handleClick("reportes")}
                 >
                   REPORTES
                 </button>
+                { role === "Student" &&
+                <button onClick={() => handleClick("Subir Reporte")} className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">{role === "Student" && "Subir Reporte"}</button>}
+                </>
               )}
             </div>
           </div>
@@ -117,7 +125,11 @@ function Aside({role, token}) {
       </div>
       
         {mostrar === "escuela" && <Escuela token = {token} />}
-        {mostrar === "reportes" && <RpteNuevo token = {token}/>}
+        {mostrar === "reportes" && role === "Admin" && <AdminReportsTable token = {token} />  }
+        {mostrar === "reportes" && role === "Student" && <StudentReportsTable token = {token} />  }
+        {mostrar === "reportes" && role === "Recruiter" && <ControllerTableViewReports token = {token} />  }
+        {mostrar === "reportes" && role === "Controller" && <ControllerTableViewReports token = {token} />  }
+        {mostrar === "Subir Reporte" && role === "Student" && <RpteNuevo token = {token}/>}
         {mostrar === "country" && <Country token = {token} />}
         {mostrar === "usuario" && <Mainbasegozu token = {token} />}
       

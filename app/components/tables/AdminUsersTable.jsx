@@ -141,7 +141,7 @@ export default function AdminUsersTable() {
 
     return (
         <>
-            <div className='flex flex-col'>
+            <div className='flex flex-col mt-5 mx-auto'>
                 {/* Componente para el filtro por nombre a través de un input */}
                 <FilterInput
                     handleChange={handleChange}

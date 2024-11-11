@@ -93,7 +93,7 @@ const paginationOptions = {
     selectAllRowsItemText: 'Todos', // Texto para la opción de seleccionar todas las filas
 };
 
-export default function ControllerTableViewReports() {
+export default function ControllerTableViewReports({token}) {
     // Simulación de registros para el DataTable
     const [services, setServices] = useState([]);
     const [categories, setCategories] = useState([])
@@ -111,7 +111,7 @@ export default function ControllerTableViewReports() {
     useEffect(() => {
         axios.get('https://funval-api.onrender.com/api/v1/services/', {
             headers: {
-                'Authorization': CONTROLLER_TOKEN
+                'Authorization': token
             }
         })
             .then((rs) => {
@@ -122,7 +122,7 @@ export default function ControllerTableViewReports() {
 
         axios.get('https://funval-api.onrender.com/api/v1/categories/', {
             headers: {
-                'Authorization': CONTROLLER_TOKEN
+                'Authorization': token
             }
         })
             .then((rs) => {
@@ -155,7 +155,7 @@ export default function ControllerTableViewReports() {
 
     return (
         <>
-            <div className='flex flex-col'>
+            <div className='flex flex-col mt-5 mx-auto'>
                 {/* Componente para el filtro por nombre a través de un input */}
                 <FilterInput
                     handleChange={handleChange}
