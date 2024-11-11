@@ -1,9 +1,8 @@
 "use client";
 import { useState } from "react";
 
-function Aside({ setMostrar }) {
+function Aside({ setMostrar, role }) {
   const [show, setShow] = useState(true);
-  let role = "Admin";
 
   const toggleMenu = () => {
     setShow(!show);

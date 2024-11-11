@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-function Escuela() {
+function Escuela(token) {
   const [escuelas, setEscuelas] = useState([]);
 
   useEffect(() => {
@@ -11,8 +11,7 @@ function Escuela() {
           "https://funval-api.onrender.com/api/v1/schools/",
           {
             headers: {
-              Authorization:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJyb2xlIjp7ImlkIjoiMSIsIm5hbWUiOiJBZG1pbiJ9LCJpYXQiOjE3MzEyNzk2MzEsImV4cCI6MTczMTM2NjAzMX0.DktBhEDuVv9taVnZiy_TVq85wKWKktmfVb1F5YfsvUk",
+              Authorization: token,
               "Content-Type": "application/json",
             },
           }
