@@ -3,11 +3,12 @@ import { useState } from "react";
 import Escuela from "../escuela/Escuela";
 import Reportes from "../Reportes/Reportes";
 import Country from "../country/Country";
+import Mainbasegozu from "../mains/Mainbasegozu";
 
 
-function Aside({role,token}) {
+function Aside({token}) {
   const [show, setShow] = useState(true);
-  
+  const role="Admin"
   const [mostrar, setMostrar] = useState(null);
   const handleMostrar = (componente) => {
     setMostrar(componente);
@@ -115,9 +116,9 @@ function Aside({role,token}) {
       </div>
       
         {mostrar === "escuela" && <Escuela token = {token} />}
-        {mostrar === "usuario" && <Usuario />}
         {mostrar === "reportes" && <Reportes />}
         {mostrar === "country" && <Country token = {token} />}
+        {mostrar === "usuario" && <Mainbasegozu token = {token} />}
       
     </div>
   );
