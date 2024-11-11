@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Escuela from "../escuela/Escuela";
+import Reportes from "../Reportes/Reportes";
 
 
 function Aside({role,token}) {
@@ -114,6 +115,7 @@ function Aside({role,token}) {
       
         {mostrar === "escuela" && <Escuela token = {token} />}
         {mostrar === "usuario" && <Usuario />}
+        {mostrar === "reportes" && <Reportes />}
       
     </div>
   );
