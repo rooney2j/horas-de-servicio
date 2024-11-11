@@ -1,31 +1,48 @@
-'use client'
+"use client";
 import { useState } from "react";
 
-function Aside({ setMostrarEscuela, role }) {
+
+function Aside({ setMostrar, role }) {
   const [show, setShow] = useState(true);
-  /* let rol = "admin"; */
+
 
   const toggleMenu = () => {
     setShow(!show);
   };
 
-  const handleClick = () => {
-    setMostrarEscuela(true);
+  const handleClick = (componente) => {
+    setMostrar(componente);
+    toggleMenu();
   };
 
   return (
     <div className="h-full">
-      <div className={`${show ? "" : "hidden"
-        } p-4`}>
-        <button onClick={toggleMenu}
-          className="h-8 w-8 rounded-md shadow-md shadow-slate-500 bg-slate-500 flex items-center justify-center border border-slate-600 border-t-slate-200 border-l-slate-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      <div className={`${show ? "hidden" : ""} p-4`}>
+        <button
+          onClick={toggleMenu}
+          className="h-8 w-8 rounded-md shadow-md shadow-slate-500 bg-slate-500 flex items-center justify-center border border-slate-600 border-t-slate-200 border-l-slate-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
           </svg>
         </button>
       </div>
-      <div className={`${show ? "hidden" : ""
-        } w-screen md:w-80 h-screen bg-[#2E7EDF]`}>
+      <div
+        className={`${
+          show ? "" : "hidden"
+        } w-screen md:w-80 h-screen bg-[#2E7EDF]`}
+      >
         <div className="w-full h-28 bg-[#023763] flex items-center justify-center">
           <button
             onClick={toggleMenu}
@@ -41,41 +58,52 @@ function Aside({ setMostrarEscuela, role }) {
           />
         </div>
         <div className="flex flex-col items-center">
-          <div className="flex flex-col items-center justify-center mt-2 md:mt-10 gap-2 md:gap-8">
+          <div className="flex flex-col items-center justify-center mt-2 md:mt-6 gap-2 md:gap-6">
             <div className="bg-white text-5xl h-32 w-32 rounded-full flex items-center justify-center">
               KR
             </div>
             <div className="text-white">USER NAME</div>
-            <div className="text-[#023763] font-bold text-2xl">{role
-              }</div>
+
+            <div className="text-[#023763] font-bold text-2xl">{role}</div>
+
           </div>
           <div className="flex flex-col w-full h-72 items-center justify-center mt-2 md:mt-8">
             {role === "Admin" ? (
               <>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={() => handleClick("usuario")}
+                >
                   USUARIOS
                 </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={() => handleClick("reportes")}
+                >
                   REPORTES
                 </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50" onClick={handleClick}>
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={() => handleClick("escuela")}
+                >
                   ESCUELAS
                 </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+                <button
+                  className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                  onClick={() => handleClick("paises")}
+                >
                   PAISES
-                </button>
-                <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
-                  REPORTES
                 </button>
               </>
             ) : (
-              <button className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50">
+              <button
+                className="text-[#023763] w-full h-14 font-bold hover:bg-slate-50"
+                onClick={() => handleClick("reportes")}
+              >
                 REPORTES
               </button>
             )}
           </div>
-
-          <div className="font-bold text-lg md:mt-20 hover:text-white">Logout</div>
         </div>
       </div>
     </div>
@@ -83,4 +111,3 @@ function Aside({ setMostrarEscuela, role }) {
 }
 
 export default Aside;
-
