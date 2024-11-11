@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.report-accepted {
+    background-color: palegreen;
+}
+
+.report-accepted:hover {
+    background-color: aquamarine;
+}
