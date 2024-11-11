@@ -74,7 +74,7 @@ export default function AdminUsersTable({token}) {
     };
 
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col mx-auto mt-5'>
             <FilterRadioButtons
                 filterStatus={filterStatus}
                 handleStatusChange={handleStatusChange}
@@ -98,43 +98,6 @@ export default function AdminUsersTable({token}) {
     );
 }
 
-    }
+   
 
-    const handleStatusChange = (event) => {
-        setFilterStatus(event.target.value);
-        setResetPaginationToggle(!resetPaginationToggle); // Reiniciar paginación al aplicar el filtro
-    };
-
-    return (
-        <>
-            <div className='flex flex-col'>
-                {/* Componente para las opciones de filtrado a través de radio buttons */}
-                <FilterRadioButtons
-                    filterStatus={filterStatus}
-                    handleStatusChange={handleStatusChange}
-                />
-
-                {/* Componente para el filtro por nombre a través de un input */}
-                <FilterInput
-                    handleChange={handleChange}
-                    filterText={filterText}
-                    isActiveSearchButton={isActiveSearchButton}
-                    handleClear={handleClear}
-                />
-
-                {/* DataTable */}
-                <DataTable
-                    columns={columns}
-                    data={filteredItems}
-                    conditionalRowStyles={conditionalRowStyles}
-                    customStyles={customStyles}
-                    pagination
-                    paginationResetDefaultPage={resetPaginationToggle}
-                    selectableRows
-                    responsive
-                />
-            </div>
-        </>
-    )
-}
 

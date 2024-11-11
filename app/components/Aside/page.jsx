@@ -4,6 +4,7 @@ import Escuela from "../escuela/Escuela";
 import Reportes from "../Reportes/Reportes";
 import Country from "../country/Country";
 import Mainbasegozu from "../mains/Mainbasegozu";
+import RpteNuevo from "../Reportes/nuevo/page";
 
 
 function Aside({role, token}) {
@@ -67,9 +68,9 @@ function Aside({role, token}) {
           <div className="flex flex-col items-center">
             <div className="flex flex-col items-center justify-center mt-2 md:mt-6 gap-2 md:gap-6">
               <div className="bg-white text-5xl h-32 w-32 rounded-full flex items-center justify-center">
-                KR
+                FV
               </div>
-              <div className="text-white">USER NAME</div>
+              <div className="text-white"></div>
 
               <div className="text-[#023763] font-bold text-2xl">{role}</div>
 
@@ -116,7 +117,7 @@ function Aside({role, token}) {
       </div>
       
         {mostrar === "escuela" && <Escuela token = {token} />}
-        {mostrar === "reportes" && <Reportes />}
+        {mostrar === "reportes" && <RpteNuevo token = {token}/>}
         {mostrar === "country" && <Country token = {token} />}
         {mostrar === "usuario" && <Mainbasegozu token = {token} />}
       

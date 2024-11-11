@@ -1,4 +1,3 @@
-
 import { auth } from "@/auth";
 import Aside from "./components/Aside/page";
 import LogOut from "./components/icons/LogOutIcon";
@@ -6,7 +5,6 @@ import { signOut } from "@/auth";
 import { redirect } from "next/navigation";
 import Escuela from "./components/escuela/Escuela";
 import TableBase from "./components/tables/TableBase"
-
 
 export default async function Home() {
 
@@ -16,6 +14,7 @@ export default async function Home() {
 
   if (!session) {
 
+
     redirect('/auth/login')
   }
   else {
@@ -23,8 +22,11 @@ export default async function Home() {
   }
 
 
+ 
+
   return (
     <>
+
 
       <div className="h-screen w-screen flex">
         <Aside
@@ -33,20 +35,14 @@ export default async function Home() {
         <Escuela
           token={session.accessToken}
         />
-        <TableBase
-          token={session.accessToken}
-        />
+        <TableBase token={session.accessToken}/>
+    
 
-        <div className="bg-[url(/images/1393565.webp')] h-full w-full ">
-
+        <div className="bg-[url(/images/1393565.webp')] h-full">
         </div>
-      </div>
 
-
-
+       </div>
     </>
 
-
   )
-
 }
