@@ -6,17 +6,6 @@ import { redirect } from "next/navigation";
 import Escuela from "./components/escuela/Escuela";
 import TableBase from "./components/tables/TableBase"
 
-import Aside from "./components/Aside/page";
-
-import LogOut from "./components/icons/LogOutIcon";
-
-import { signOut } from "@/auth";
-
-import { redirect } from "next/navigation";
-
-import Escuela from "./components/escuela/Escuela";
-
-import TableBase from "./components/tables/TableBase"
 
 export default async function Home() {
   const session = await auth(); 

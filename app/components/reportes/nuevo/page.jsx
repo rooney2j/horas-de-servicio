@@ -4,7 +4,7 @@ import { createService } from "@/services/apiServices";
 import { auth } from '@/auth';
 import { useEffect } from "react";
 
-export default function RpteNuevo({token}) {
+export default function RpteNuevo({token,uploadService, setUploadService}) {
   console.log(useData)
   const url = "https://funval-api.onrender.com/api/v1/categories/";
 
@@ -28,7 +28,7 @@ export default function RpteNuevo({token}) {
   };
 
   return (
-    <div className="w-full h-full flex flex-col  justify-center items-center">
+    <div className={`w-full h-full flex flex-col  justify-center items-center`}>
       <div className="w-[90%] md:w-[50%] h-full flex flex-col justify-center items-center">
         <div className="flex bg-[#023763] md:flex-col w-[90%] ml-3 border-2 rounded-lg justify-center items-center">
           <h2 className="mt-5 mb-5 text-white">

@@ -141,7 +141,7 @@ const paginationOptions = {
     selectAllRowsItemText: 'Todos', // Texto para la opción de seleccionar todas las filas
 };
 
-export default function StudentReportsTable() {
+export default function StudentReportsTable({token}) {
     const [services, setServices] = useState([]);
 
     // Filtrado
@@ -164,7 +164,7 @@ export default function StudentReportsTable() {
     useEffect(() => {
         axios.get('https://funval-api.onrender.com/api/v1/services/', {
             headers: {
-                'Authorization': STUDENT_TOKEN
+                'Authorization': token
             }
         })
             .then((rs) => {
@@ -196,7 +196,7 @@ export default function StudentReportsTable() {
 
     return (
         <>
-            <div className='flex flex-col'>
+            <div className='flex flex-col mt-5 mx-auto'>
                 {/* Componente para las opciones de filtrado a través de radio buttons */}
                 <FilterRadioButtons
                     filterStatus={filterStatus}
